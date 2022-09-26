@@ -6,17 +6,18 @@
     <style>
         .reader {
             width: '50%';
-            overflow: 'hidden';
+            overflow: hidden;
         }
         .scan_result {
-            visibility: 'hidden';
+            display: none;
         }
+        
     </style>
     <body>
         <div id="reader" class="reader"></div>
         <div id="scan_result" class="scan_result">
             <p id="result"></p>
-            <button onclick="qrScan(false)">Scan again</button>
+            <button class="scan_again" onclick="qrScan(false)">Scan again</button>
         </div>
         <p id="camera-data"></p>
         <button onclick="qrScan(true)">Start scanning</button>
@@ -43,10 +44,8 @@ var __Html5QrcodeLibrary__;(()=>{var t={449:function(t,e,r){!function(t){"use st
         </script>
         <script type="text/javascript">
             function qrScan(mode) {
-                if (mode == true) {
-                    document.getElementById('scan_result').style.visibility = 'visible';
-                } else {
-                    document.getElementById('scan_result').style.visibility = 'hidden';
+                if (mode == false) {
+                    document.getElementById('scan_result').style.display = 'none';
                 }
                 
                 Html5Qrcode.getCameras().then(devices => {
@@ -85,6 +84,7 @@ var __Html5QrcodeLibrary__;(()=>{var t={449:function(t,e,r){!function(t){"use st
                         // do something when code is read. For example:
                         console.log(`QR Code detected: ${qrCodeMessage}`);
                         document.getElementById("result").innerHTML = qrCodeMessage;
+                        document.getElementById("scan_result").style.display = "block"
                         html5QrCode.stop().then(ignore => {
                         // QR Code scanning is stopped.
                         console.log("QR Code scanning stopped.");
