@@ -36,11 +36,17 @@ var __Html5QrcodeLibrary__;(()=>{var t={449:function(t,e,r){!function(t){"use st
              */
             console.log(devices)
             if (devices && devices.length) {
-                var cameraId = devices[0].id;
-                
-                var cameraLabels = []
+                //var cameraId = devices[0].id;
+                var cameraId = "null";
+                // var cameraLabels = []
                 for (i = 0; i < devices.length; i++) {
-                    cameraLabels.push(devices[i].label)
+                    if (devices[i].label.includes("back")) {
+                        cameraId = devices[i].id
+                        break
+                    } 
+                }
+                if (cameraId == "null") {
+                    cameraId = devices[0].id;
                 }
                 document.getElementById("camera-data").innerHTML = cameraLabels;
                 console.log("camera found")
