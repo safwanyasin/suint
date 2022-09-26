@@ -4,17 +4,40 @@
         <title>QR code scanner</title>
     </head> 
     <style>
+        body {
+            padding: 0;
+            margin: 0;
+            background-color: rgb(255, 255, 201);
+        }
         .reader {
-            width: '50%';
+            width: 50%;
             overflow: hidden;
         }
         .scan_result {
             display: none;
         }
+        .navbar_logo {
+            width: 100px;
+        }
+        .navbar {
+            background-color: white;
+            padding: 0 10px;
+            -webkit-box-shadow: 0px 5px 26px -12px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 5px 26px -12px rgba(0,0,0,0.75);
+box-shadow: 0px 5px 26px -12px rgba(0,0,0,0.75);
+        }
+        @media only screen and (max-width: 600px) {
+            .reader {
+                width: 80%;
+            }
+        }
         
     </style>
     <body>
-        <div id="reader" style="width: 50%" class="reader"></div>
+        <div class="navbar">
+            <img class="navbar_logo" src="https://pps.whatsapp.net/v/t61.24694-24/306568347_644639067070026_8036251463479924338_n.jpg?ccb=11-4&oh=01_AVxfreR-wF2ikUIZWr4qh_cZI2IaqIKVuMi1kQyhlxouMw&oe=634219B6" alt="suint logo" />
+        </div>
+        <div id="reader" class="reader"></div>
         <div id="scan_result" class="scan_result">
             <p id="result"></p>
             <button class="scan_again" onclick="qrScan(false)">Scan again</button>
