@@ -38,6 +38,7 @@ var __Html5QrcodeLibrary__;(()=>{var t={449:function(t,e,r){!function(t){"use st
             if (devices && devices.length) {
                 var cameraId = devices[0].id;
                 document.getElementById("camera-data").innerHTML = devices;
+                console.log(devices)
                 console.log("camera found")
                 // .. use this to start scanning.
                 const html5QrCode = new Html5Qrcode("reader");
