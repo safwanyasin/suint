@@ -5,6 +5,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head> 
     <style>
         * {
@@ -20,9 +21,6 @@
             overflow: hidden;
             padding: 30px;
         }
-        .scan_result {
-            display: none;
-        }
         .navbar_logo {
             width: 100px;
         }
@@ -33,10 +31,19 @@
             -moz-box-shadow: 0px 5px 26px -12px rgba(0,0,0,0.75);
             box-shadow: 0px 5px 26px -12px rgba(0,0,0,0.75);
         }
+        .scan_result {
+            display: none;
+        }
         .start_scan_container, .scan_result_container, .reader_container {
             display: flex;
             flex-direction: row;
             justify-content: center;
+        }
+        .scan_result_container, .scan_result {
+            width: 100%;
+        }
+        .scan_result {
+            width: 50%;
         }
         .start_scan_btn, .scan_again_btn {
             width: 50%;
@@ -47,21 +54,36 @@
             background-color: rgba(0, 0, 0, 0);
             border-radius: 10px;
         }
-        .result {
+        .start_scan_btn {
+            width: 50%;
+        }
+        .scan_again_btn {
+            width: 100%;
+        }
+        #result {
             text-align: center;
-            font-size: 50px;
+            font-size: 30px;
         }
         @media only screen and (max-width: 1080px) {
             .reader {
                 width: 80%;
             }
             .navbar_logo {
-                width: 200px;
+                width: 150px;
             }
             .start_scan_btn, .scan_again_btn {
+                /* width: 80%; */
+                height: 75px;
+                border-radius: 20px;
+                font-size: 25px;
+                /* height: 150px;
+                font-size: 70px; */
+            }
+            .start_scan_btn {
                 width: 80%;
-                height: 150px;
-                font-size: 70px;
+            }
+            .scan_result {
+                width: 80%;
             }
         }
         
