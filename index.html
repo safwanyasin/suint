@@ -159,6 +159,8 @@ var __Html5QrcodeLibrary__;(()=>{var t={449:function(t,e,r){!function(t){"use st
                         .then(data => {
                             console.log(data)
                             document.getElementById("result").innerHTML = data
+                            document.getElementById('scan_result').style.display = 'block';
+                            
                         
                         })
                         html5QrCode.stop().then(ignore => {
