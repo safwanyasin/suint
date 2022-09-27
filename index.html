@@ -2,8 +2,14 @@
 <html>
     <head>
         <title>QR code scanner</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
     </head> 
     <style>
+        * {
+            font-family: 'Roboto', sans-serif;
+        }
         body {
             padding: 0;
             margin: 0;
@@ -12,6 +18,7 @@
         .reader {
             width: 50%;
             overflow: hidden;
+            padding: 30px;
         }
         .scan_result {
             display: none;
@@ -34,10 +41,19 @@
                 width: 200px;
             }
         }
-        .start_scan_container, .scan_result_container {
+        .start_scan_container, .scan_result_container, .reader_container {
             display: flex;
             flex-direction: row;
             justify-content: center;
+        }
+        .start_scan_btn, .scan_again_btn {
+            width: 50%;
+            height: 50px;
+            font-size: 20px;
+            border: 3px solid #efbc17;
+            color: #0cac61;
+            background-color: rgba(0, 0, 0, 0);
+            border-radius: 10px;
         }
     
         
@@ -46,16 +62,19 @@
         <div class="navbar">
             <img class="navbar_logo" src="https://pps.whatsapp.net/v/t61.24694-24/306568347_644639067070026_8036251463479924338_n.jpg?ccb=11-4&oh=01_AVxfreR-wF2ikUIZWr4qh_cZI2IaqIKVuMi1kQyhlxouMw&oe=634219B6" alt="suint logo" />
         </div>
-        <div id="reader" class="reader"></div>
+        <div class="reader_container">
+            <div id="reader" class="reader"></div>
+        </div>
+        
         <div class="scan_result_container">
             <div id="scan_result" class="scan_result">
                 <p id="result"></p>
-                <button class="scan_again" onclick="qrScan(false)">Scan again</button>
+                <button class="scan_again_btn" onclick="qrScan(false)">Scan again</button>
             </div>
         </div>
         <p id="camera-data"></p>
         <div class="start_scan_container">
-            <button id="start_scanning_btn" onclick="qrScan(true)">Start scanning</button>
+            <button class="start_scan_btn" id="start_scanning_btn" onclick="qrScan(true)">Start scanning</button>
         </div>
         <script type="text/javascript">
             /*! For license information please see html5-qrcode.min.js.LICENSE.txt */
@@ -115,7 +134,7 @@ var __Html5QrcodeLibrary__;(()=>{var t={449:function(t,e,r){!function(t){"use st
                     cameraId,     // retreived in the previous step.
                     {
                         fps: 10,    // sets the framerate to 10 frame per second
-                        qrbox: 250  // sets only 250 X 250 region of viewfinder to
+                        qrbox: 500  // sets only 250 X 250 region of viewfinder to
                                     // scannable, rest shaded.
                     },
                     qrCodeMessage => {
