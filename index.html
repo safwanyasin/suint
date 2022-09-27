@@ -47,6 +47,10 @@
             background-color: rgba(0, 0, 0, 0);
             border-radius: 10px;
         }
+        .result {
+            text-align: center;
+            font-size: 50px;
+        }
         @media only screen and (max-width: 1080px) {
             .reader {
                 width: 80%;
@@ -163,7 +167,7 @@ var __Html5QrcodeLibrary__;(()=>{var t={449:function(t,e,r){!function(t){"use st
                                 document.getElementById('scan_result').style.display = 'block';
                                 document.getElementById("result").style.color = "green";
                             } else {
-                                document.getElementById("result").innerHTML = "Student not found!"
+                                document.getElementById("result").innerHTML = "Student not found! ❌"
                                 document.getElementById("result").style.color = "red";
                                 document.getElementById('scan_result').style.display = 'block';
                             }
