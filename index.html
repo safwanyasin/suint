@@ -157,9 +157,17 @@ var __Html5QrcodeLibrary__;(()=>{var t={449:function(t,e,r){!function(t){"use st
                         })
                         .then(response => response.json())
                         .then(data => {
-                            console.log(data)
-                            document.getElementById("result").innerHTML = data
-                            document.getElementById('scan_result').style.display = 'block';
+                            if (data != null) {
+                                console.log(data)
+                                document.getElementById("result").innerHTML = data.student_id + "    " + data.student_name
+                                document.getElementById('scan_result').style.display = 'block';
+                                document.getElementById("result").style.color = "green";
+                            } else {
+                                document.getElementById("result").innerHTML = "Student not found!"
+                                document.getElementById("result").style.color = "red";
+                                document.getElementById('scan_result').style.display = 'block';
+                            }
+                            
                             
                         
                         })
