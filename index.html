@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>QR code scanner</title>
+        <title>SUINT QR Code Scanner</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
@@ -145,9 +145,22 @@ var __Html5QrcodeLibrary__;(()=>{var t={449:function(t,e,r){!function(t){"use st
                     },
                     qrCodeMessage => {
                         // do something when code is read. For example:
-                        console.log(`QR Code detected: ${qrCodeMessage}`);
-                        document.getElementById("result").innerHTML = qrCodeMessage;
-                        document.getElementById("scan_result").style.display = "block"
+                        // console.log(`QR Code detected: ${qrCodeMessage}`);
+                        var myUrl = "https://x8ki-letl-twmt.n7.xano.io/api:MbK6Cxib/get_student"
+                        var fetchURL = new URL(myUrl);
+                        fetchURL.searchParams.set("student_id", qrCodeMessage);
+                        fetch(fetchURL, {
+
+                            headers: [],
+                            method: "GET"
+
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log(data)
+                            document.getElementById("result").innerHTML = data
+                        
+                        })
                         html5QrCode.stop().then(ignore => {
                         // QR Code scanning is stopped.
                         console.log("QR Code scanning stopped.");
