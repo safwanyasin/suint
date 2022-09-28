@@ -14,7 +14,12 @@
         body {
             padding: 0;
             margin: 0;
-            background-color: rgb(255, 255, 201);
+            /* background-color: rgb(255, 255, 201); */
+            background: url('https://raw.githubusercontent.com/safwanyasin/suint_event_scanner/main/bg.jpeg') no-repeat center center fixed; 
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
         }
         .reader {
             width: 50%;
@@ -74,7 +79,7 @@
                 width: 1vw;
             } */
             .reader {
-                width: 90%;
+                width: 80%;
             }
             .navbar_logo {
                 width: 150px;
@@ -109,6 +114,8 @@
         <div class="scan_result_container">
             <div id="scan_result" class="scan_result">
                 <p id="result"></p>
+                <p id="student_name"></p>
+                <p id="shuttle"></p>
                 <button class="scan_again_btn" onclick="qrScan(false)">Scan again</button>
             </div>
         </div>
@@ -193,7 +200,10 @@ var __Html5QrcodeLibrary__;(()=>{var t={449:function(t,e,r){!function(t){"use st
                         .then(data => {
                             if (data != null) {
                                 console.log(data)
-                                document.getElementById("result").innerHTML = data.student_id + "    " + data.student_name
+                                const lineBreak = document.createElement('br');
+                                document.getElementById("result").innerHTML = data.student_id
+                                document.getElementById("student_name").innerHTML = data.student_name
+                                data.shuttle ? document.getElementById("shuttle").innerHTML = "🚌" : document.getElementById("shuttle").innerHTML = ""
                                 document.getElementById('scan_result').style.display = 'block';
                                 document.getElementById("result").style.color = "green";
                             } else {
