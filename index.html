@@ -263,9 +263,22 @@ var __Html5QrcodeLibrary__;(()=>{var t={449:function(t,e,r){!function(t){"use st
 
                           // Driver code
                        
-                        console.log(qrCodeMessage)
-                        searchID = Integer.parseInt(qrCodeMessage)
-                        
+                        var searchResult = binarySearch(data, Integer.parseInt(qrCodeMessage), 0, data.length-1)
+                        if (searchResult != false) {
+                            const lineBreak = document.createElement('br');
+                            document.getElementById("result").innerHTML = data.student_id
+                            document.getElementById("student_name").innerHTML = data.student_name
+                            data.shuttle ? document.getElementById("shuttle").innerHTML = "🚌" : document.getElementById("shuttle").innerHTML = ""
+                            document.getElementById('scan_result').style.display = 'block';
+                            document.getElementById("result").style.color = "green";
+                            document.getElementById("student_name").style.color = "green";
+                        }
+                        else {
+                            document.getElementById("result").innerHTML = "Student not found! ❌"
+                            document.getElementById("result").style.color = "red";
+                            document.getElementById('scan_result').style.display = 'block';
+                        }
+
                         html5QrCode.stop().then(ignore => {
                         // QR Code scanning is stopped.
                         console.log("QR Code scanning stopped.");
@@ -288,21 +301,7 @@ var __Html5QrcodeLibrary__;(()=>{var t={449:function(t,e,r){!function(t){"use st
                 }).catch(err => {
                 // handle err
                 });
-                var searchResult = binarySearch(data, searchID, 0, data.length-1)
-                        if (searchResult != false) {
-                            const lineBreak = document.createElement('br');
-                            document.getElementById("result").innerHTML = data.student_id
-                            document.getElementById("student_name").innerHTML = data.student_name
-                            data.shuttle ? document.getElementById("shuttle").innerHTML = "🚌" : document.getElementById("shuttle").innerHTML = ""
-                            document.getElementById('scan_result').style.display = 'block';
-                            document.getElementById("result").style.color = "green";
-                            document.getElementById("student_name").style.color = "green";
-                        }
-                        else {
-                            document.getElementById("result").innerHTML = "Student not found! ❌"
-                            document.getElementById("result").style.color = "red";
-                            document.getElementById('scan_result').style.display = 'block';
-                        }
+                
             }
            
                         
