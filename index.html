@@ -260,6 +260,7 @@ var __Html5QrcodeLibrary__;(()=>{var t={449:function(t,e,r){!function(t){"use st
                           // Driver code
                        
                         let searchID = qrCodeMessage
+                        console.log(qrCodeMessage)
                         if (recursiveFunction(data, searchID, 0, data.length-1) != false) {
                             const lineBreak = document.createElement('br');
                             document.getElementById("result").innerHTML = data.student_id
@@ -308,5 +309,4 @@ var __Html5QrcodeLibrary__;(()=>{var t={449:function(t,e,r){!function(t){"use st
         </script>
         
     </body>
-    
 </html>
