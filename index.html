@@ -230,54 +230,54 @@ var __Html5QrcodeLibrary__;(()=>{var t={449:function(t,e,r){!function(t){"use st
                         // do something when code is read. For example:
                         // console.log(`QR Code detected: ${qrCodeMessage}`);
                         
-                        var myUrl = "https://x8ki-letl-twmt.n7.xano.io/api:MbK6Cxib/get_student"
-                        var fetchURL = new URL(myUrl);
-                        fetchURL.searchParams.set("student_id", qrCodeMessage);
-                        fetch(fetchURL, {
+                        // var myUrl = "https://x8ki-letl-twmt.n7.xano.io/api:MbK6Cxib/get_student"
+                        // var fetchURL = new URL(myUrl);
+                        // fetchURL.searchParams.set("student_id", qrCodeMessage);
+                        // fetch(fetchURL, {
 
-                            headers: [],
-                            method: "GET"
+                        //     headers: [],
+                        //     method: "GET"
 
-                        })
-                        .then(response => response.json())
-                        .then(data => {
-                            if (data != null) {
-                                console.log(data)
-                                const lineBreak = document.createElement('br');
-                                document.getElementById("result").innerHTML = data.student_id
-                                document.getElementById("student_name").innerHTML = data.student_name
-                                data.shuttle ? document.getElementById("shuttle").innerHTML = "🚌" : document.getElementById("shuttle").innerHTML = ""
-                                document.getElementById('scan_result').style.display = 'block';
-                                document.getElementById("result").style.color = "green";
-                                document.getElementById("student_name").style.color = "green";
-                            } else {
-                                document.getElementById("result").innerHTML = "Student not found! ❌"
-                                document.getElementById("result").style.color = "red";
-                                document.getElementById('scan_result').style.display = 'block';
-                            }
+                        // })
+                        // .then(response => response.json())
+                        // .then(data => {
+                        //     if (data != null) {
+                        //         console.log(data)
+                        //         const lineBreak = document.createElement('br');
+                        //         document.getElementById("result").innerHTML = data.student_id
+                        //         document.getElementById("student_name").innerHTML = data.student_name
+                        //         data.shuttle ? document.getElementById("shuttle").innerHTML = "🚌" : document.getElementById("shuttle").innerHTML = ""
+                        //         document.getElementById('scan_result').style.display = 'block';
+                        //         document.getElementById("result").style.color = "green";
+                        //         document.getElementById("student_name").style.color = "green";
+                        //     } else {
+                        //         document.getElementById("result").innerHTML = "Student not found! ❌"
+                        //         document.getElementById("result").style.color = "red";
+                        //         document.getElementById('scan_result').style.display = 'block';
+                        //     }
                             
                             
                         
-                        })
+                        // })
 
                           // Driver code
                        
-                        // let searchID = qrCodeMessage
-                        // console.log(qrCodeMessage)
-                        // if (recursiveFunction(data, searchID, 0, data.length-1) != false) {
-                        //     const lineBreak = document.createElement('br');
-                        //     document.getElementById("result").innerHTML = data.student_id
-                        //     document.getElementById("student_name").innerHTML = data.student_name
-                        //     data.shuttle ? document.getElementById("shuttle").innerHTML = "🚌" : document.getElementById("shuttle").innerHTML = ""
-                        //     document.getElementById('scan_result').style.display = 'block';
-                        //     document.getElementById("result").style.color = "green";
-                        //     document.getElementById("student_name").style.color = "green";
-                        // }
-                        // else {
-                        //     document.getElementById("result").innerHTML = "Student not found! ❌"
-                        //     document.getElementById("result").style.color = "red";
-                        //     document.getElementById('scan_result').style.display = 'block';
-                        // }
+                        let searchID = qrCodeMessage
+                        console.log(qrCodeMessage)
+                        if (recursiveFunction(data, searchID, 0, data.length-1) != false) {
+                            const lineBreak = document.createElement('br');
+                            document.getElementById("result").innerHTML = data.student_id
+                            document.getElementById("student_name").innerHTML = data.student_name
+                            data.shuttle ? document.getElementById("shuttle").innerHTML = "🚌" : document.getElementById("shuttle").innerHTML = ""
+                            document.getElementById('scan_result').style.display = 'block';
+                            document.getElementById("result").style.color = "green";
+                            document.getElementById("student_name").style.color = "green";
+                        }
+                        else {
+                            document.getElementById("result").innerHTML = "Student not found! ❌"
+                            document.getElementById("result").style.color = "red";
+                            document.getElementById('scan_result').style.display = 'block';
+                        }
 
                         html5QrCode.stop().then(ignore => {
                         // QR Code scanning is stopped.
