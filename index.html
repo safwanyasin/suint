@@ -266,7 +266,9 @@ var __Html5QrcodeLibrary__;(()=>{var t={449:function(t,e,r){!function(t){"use st
                         searchID = qrCodeMessage
                         console.log(qrCodeMessage)
                         console.log(data)
-                        var searchResult = binarySearch(data, qrCodeMessage, 0, data.length-1)
+                        var searchResult = binarySearch(data, Integer.parseInt(searchID), 0, data.length-1)
+                        console.log(binarySearch(data, 30037, 0, data.length-1))
+                        console.log(searchResult)
                         if (searchResult != false) {
                             const lineBreak = document.createElement('br');
                             document.getElementById("result").innerHTML = data.student_id
