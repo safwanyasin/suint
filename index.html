@@ -185,6 +185,9 @@ var __Html5QrcodeLibrary__;(()=>{var t={449:function(t,e,r){!function(t){"use st
             // console.log(binarySearch(data, 30096, data[0][0], data[data.length-1][0]))
 
             function qrScan(mode) {
+                document.getElementById("result").innerHTML = ""
+                document.getElementById("student_name").innerHTML = ""
+                document.getElementById("shuttle").innerHTML = ""
                 if (mode == false) {
                     document.getElementById('scan_result').style.display = 'none';
                 } else {
