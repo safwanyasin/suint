@@ -264,6 +264,8 @@ var __Html5QrcodeLibrary__;(()=>{var t={449:function(t,e,r){!function(t){"use st
                           // Driver code
                        
                         searchID = qrCodeMessage
+                        console.log(qrCodeMessage)
+                        console.log(data)
                         var searchResult = binarySearch(data, qrCodeMessage, 0, data.length-1)
                         if (searchResult != false) {
                             const lineBreak = document.createElement('br');
