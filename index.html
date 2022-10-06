@@ -270,7 +270,7 @@ var __Html5QrcodeLibrary__;(()=>{var t={449:function(t,e,r){!function(t){"use st
                         // Stop failed, handle it.
                         console.log("Unable to stop scanning.");
                         });
-                        var searchResult = recursiveFunction(data, searchID, 0, data.length-1)
+                        var searchResult = recursiveFunction(data, qrCodeMessage, 0, data.length-1)
                         if (searchResult != false) {
                             const lineBreak = document.createElement('br');
                             document.getElementById("result").innerHTML = data.student_id
