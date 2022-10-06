@@ -103,7 +103,7 @@
     
         
     </style>
-    <body onload="getData()">
+    <body>
         <div class="navbar">
             <img class="navbar_logo" src="https://pps.whatsapp.net/v/t61.24694-24/306568347_644639067070026_8036251463479924338_n.jpg?ccb=11-4&oh=01_AVxfreR-wF2ikUIZWr4qh_cZI2IaqIKVuMi1kQyhlxouMw&oe=634219B6" alt="suint logo" />
         </div>
@@ -146,44 +146,6 @@ var __Html5QrcodeLibrary__;(()=>{var t={449:function(t,e,r){!function(t){"use st
     }
         </script>
         <script type="text/javascript">
-            let data = []
-            async function getData() {
-                var response = await fetch("https://x8ki-letl-twmt.n7.xano.io/api:MbK6Cxib/get_students")
-                .then(hello => hello.json())
-                .then(response => {
-                    for (i = 0; i < response.length; i++) {
-                        data.push([response[i].student_id, response[i].student_name, response[i].shuttle])
-                    }
-                })
-            }
-           
-
-            function binarySearch(arr, x, start, end) {
-      
-                // Base Condition
-                if (start > end) return false;
-                
-                // Find the middle index
-                let mid=Math.floor((start + end)/2);
-                
-                // Compare mid with given key x
-                if (arr[mid][0]===x) return arr[mid];
-                    
-                // If element at mid is greater than x,
-                // search in the left half of mid
-                if(arr[mid][0] > x)
-                    return binarySearch(arr, x, start, mid-1);
-                else
-            
-                    // If element at mid is smaller than x,
-                    // search in the right half of mid
-                    return binarySearch(arr, x, mid+1, end);
-            }
-            
-            
-           
-            // console.log(binarySearch(data, 30096, data[0][0], data[data.length-1][0]))
-
             function qrScan(mode) {
                 if (mode == false) {
                     document.getElementById('scan_result').style.display = 'none';
@@ -226,7 +188,6 @@ var __Html5QrcodeLibrary__;(()=>{var t={449:function(t,e,r){!function(t){"use st
                     qrCodeMessage => {
                         // do something when code is read. For example:
                         // console.log(`QR Code detected: ${qrCodeMessage}`);
-                        
                         var myUrl = "https://x8ki-letl-twmt.n7.xano.io/api:MbK6Cxib/get_student"
                         var fetchURL = new URL(myUrl);
                         fetchURL.searchParams.set("student_id", qrCodeMessage);
@@ -255,27 +216,7 @@ var __Html5QrcodeLibrary__;(()=>{var t={449:function(t,e,r){!function(t){"use st
                             
                             
                         
-                        // })
-
-                          // Driver code
-                       
-                        // let searchID = qrCodeMessage
-                        // console.log(qrCodeMessage)
-                        // if (recursiveFunction(data, searchID, 0, data.length-1) != false) {
-                        //     const lineBreak = document.createElement('br');
-                        //     document.getElementById("result").innerHTML = data.student_id
-                        //     document.getElementById("student_name").innerHTML = data.student_name
-                        //     data.shuttle ? document.getElementById("shuttle").innerHTML = "🚌" : document.getElementById("shuttle").innerHTML = ""
-                        //     document.getElementById('scan_result').style.display = 'block';
-                        //     document.getElementById("result").style.color = "green";
-                        //     document.getElementById("student_name").style.color = "green";
-                        // }
-                        // else {
-                        //     document.getElementById("result").innerHTML = "Student not found! ❌"
-                        //     document.getElementById("result").style.color = "red";
-                        //     document.getElementById('scan_result').style.display = 'block';
-                        // }
-
+                        })
                         html5QrCode.stop().then(ignore => {
                         // QR Code scanning is stopped.
                         console.log("QR Code scanning stopped.");
@@ -299,13 +240,6 @@ var __Html5QrcodeLibrary__;(()=>{var t={449:function(t,e,r){!function(t){"use st
             }
            
                         
-        </script>
-        <script>
-            var response = fetch("https://x8ki-letl-twmt.n7.xano.io/api:MbK6Cxib/get_students")
-            .then(data => data.json())
-            .then(response => {
-                console.log(response)
-            })
         </script>
         
     </body>
