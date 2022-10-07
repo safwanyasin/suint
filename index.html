@@ -266,9 +266,9 @@ var __Html5QrcodeLibrary__;(()=>{var t={449:function(t,e,r){!function(t){"use st
                         var searchResult = binarySearch(data, qrCodeMessage, 0, data.length-1)
                         if (searchResult != false) {
                             const lineBreak = document.createElement('br');
-                            document.getElementById("result").innerHTML = data.student_id
-                            document.getElementById("student_name").innerHTML = data.student_name
-                            data.shuttle ? document.getElementById("shuttle").innerHTML = "🚌" : document.getElementById("shuttle").innerHTML = ""
+                            document.getElementById("result").innerHTML = searchResult.student_id
+                            document.getElementById("student_name").innerHTML = searchResult.student_name
+                            searchResult.shuttle ? document.getElementById("shuttle").innerHTML = "🚌" : document.getElementById("shuttle").innerHTML = ""
                             document.getElementById('scan_result').style.display = 'block';
                             document.getElementById("result").style.color = "green";
                             document.getElementById("student_name").style.color = "green";
