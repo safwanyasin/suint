@@ -265,12 +265,10 @@ var __Html5QrcodeLibrary__;(()=>{var t={449:function(t,e,r){!function(t){"use st
                        
                         var searchResult = binarySearch(data, qrCodeMessage, 0, data.length-1)
                         if (searchResult != false) {
-                            console.log(searchResult)
-                            console.log(qrCodeMessage)
                             const lineBreak = document.createElement('br');
-                            document.getElementById("result").innerHTML = searchResult.student_id
-                            document.getElementById("student_name").innerHTML = searchResult.student_name
-                            searchResult.shuttle ? document.getElementById("shuttle").innerHTML = "🚌" : document.getElementById("shuttle").innerHTML = ""
+                            document.getElementById("result").innerHTML = searchResult[0]
+                            document.getElementById("student_name").innerHTML = searchResult[1]
+                            searchResult[2] ? document.getElementById("shuttle").innerHTML = "🚌" : document.getElementById("shuttle").innerHTML = ""
                             document.getElementById('scan_result').style.display = 'block';
                             document.getElementById("result").style.color = "green";
                             document.getElementById("student_name").style.color = "green";
