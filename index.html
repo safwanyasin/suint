@@ -201,6 +201,9 @@ var __Html5QrcodeLibrary__;(()=>{var t={449:function(t,e,r){!function(t){"use st
                  * { id: "id", label: "label" }
                  */
                 console.log(devices)
+                for (i = 0; i < devices.length; i++) {
+                    document.write(devices[i].label)
+                }
                 if (devices && devices.length) {
                     //var cameraId = devices[0].id;
                     var cameraId = "null";
